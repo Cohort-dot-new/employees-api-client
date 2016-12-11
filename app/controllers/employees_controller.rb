@@ -46,4 +46,9 @@ class EmployeesController < ApplicationController
     ).body
     redirect_to "/employees/#{@employee['id']}"
   end
+
+  def destroy
+    message = Unirest.delete("http://localhost:3000/api/v1/employees/#{params[:id]}").body
+    redirect_to "/employees"
+  end
 end
