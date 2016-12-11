@@ -1,8 +1,8 @@
 <h1>Edit employee</h1>
 <%= form_tag "/employees/#{@employee['id']}", method: :patch do %>
   <div>
-    <%= label_tag :first_name %>
-    <%= text_field_tag :first_name, @employee["first_name"] %>
+    <%= label_tag :form_first_name %>
+    <%= text_field_tag :form_first_name, @employee["first_name"] %>
   </div>
   <div>
     <%= label_tag :last_name %>

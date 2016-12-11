@@ -38,7 +38,7 @@ class EmployeesController < ApplicationController
     @employee = Unirest.patch(
       "http://localhost:3000/api/v1/employees/#{params[:id]}",
       parameters: {
-        first_name: params[:first_name],
+        firstName: params[:form_first_name],
         last_name: params[:last_name],
         email: params[:email],
         birthdate: params[:birthdate]
