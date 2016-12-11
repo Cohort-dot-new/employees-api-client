@@ -28,4 +28,22 @@ class EmployeesController < ApplicationController
     @employee = Unirest.get("http://localhost:3000/api/v1/employees/#{params[:id]}").body
     render 'show.html.erb'
   end
+
+  def edit
+    @employee = Unirest.get("http://localhost:3000/api/v1/employees/#{params[:id]}").body
+    render 'edit.html.erb'
+  end
+
+  def update
+    @employee = Unirest.patch(
+      "http://localhost:3000/api/v1/employees/#{params[:id]}",
+      parameters: {
+        first_name: params[:first_name],
+        last_name: params[:last_name],
+        email: params[:email],
+        birthdate: params[:birthdate]
+      }
+    ).body
+    redirect_to "/employees/#{@employee['id']}"
+  end
 end
